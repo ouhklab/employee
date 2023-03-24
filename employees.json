@@ -1,0 +1,24 @@
+{
+    "employees": [
+        {
+            "name": "Michael",
+            "salary": 8000,
+            "position": "Sales Assistant"
+        },
+        {
+            "name": "Rose",
+            "salary": 18000,
+            "position": "Account clerk"
+        },
+        {
+            "name": "Cherry",
+            "salary": 10000,
+            "position": "Purchasing officer"
+        },
+        {
+            "name": "Adam",
+            "salary": 12000,
+            "position": "Administrative Assistant"
+        }
+    ]
+}

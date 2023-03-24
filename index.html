@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Name of the app -->
+    <title>Employee Info</title>
+
+<body onload="initialize()">
+    <script>
+        function initialize() {
+            if (navigator.onLine) {
+                const xhr = new XMLHttpRequest();
+                const url = "employees.json";
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        var employees = JSON.parse(xhr.response).employees;
+                        employees.forEach(addRow);
+                    }
+                };
+
+                xhr.open("get", url);
+                xhr.send();
+            }
+        }
+
+        function addRow(employee) {
+            // Add code here for part (b)
+            var employeelist = document.getElementById("employeelist");
+            var row = employeelist.insertRow();
+
+            var nameCell = row.insertCell();
+            nameCell.innerHTML = employee.name;
+
+            var salaryCell = row.insertCell();
+            salaryCell.innerHTML = employee.salary;
+
+            var positionCell = row.insertCell();
+            positionCell.innerHTML = employee.position;
+
+            var increasedsalaryCell = row.insertCell();
+            increasedsalaryCell.innerHTML = employee.salary * 1.05;
+        }
+    </script>
+
+    <!-- Add code here for part (a) -->
+    <table border="1">
+        <caption style="font-size:2em">Employee List</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Position</th>
+                <th>Increased Salary</th>
+            </tr>
+        </thead>
+        <tbody id="employeelist">
+        </tbody>
+
+    </table>
+</body>
+
+</html>
